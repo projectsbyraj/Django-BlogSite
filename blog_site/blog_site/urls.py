@@ -18,11 +18,12 @@ from django.urls import path, include
 from .views import IndexView, AboutView, ContactView, PostView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('blog-admin/', admin.site.urls),
     # path('', include('blog_app.urls')),
 
     path('', IndexView.as_view(), name='index'),
     path('about/', AboutView.as_view(), name='about'),
     path('contact/', ContactView.as_view(), name='contact'),
     path('post/', PostView.as_view(), name='post'),
+    path('accounts/', include('allauth.urls')),
 ]
